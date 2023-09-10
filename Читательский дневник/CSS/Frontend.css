@@ -1,0 +1,53 @@
+body 
+{
+    background-color: #e7d2bf;
+    color: #4e3117;
+    
+    .rating{
+      overflow: hidden;
+      width: 230px;
+      margin: 0 auto;
+    }
+    .rating:not(:checked) > input {
+      display: none;
+    }
+    .rating:not(:checked) > label {
+      float: right;
+      width: 42px;
+      padding: 0;
+      cursor: pointer;
+      font-size: 32px;
+      line-height: 32px;
+      color: rgb(184, 184, 184);
+      text-shadow: 1px 1px #8a8a8a;
+      transform: scale(1.0);
+      transition: transform 200ms, box-shadow 200ms;
+    }
+    .rating:not(:checked) > label:before {
+      content: '☻';
+    }
+    .rating > input:checked ~ label {
+      color: gold;
+      text-shadow: 1px 1px rgb(206, 127, 47);
+    }
+    .rating:not(:checked) > label:hover,
+    .rating:not(:checked) > label:hover ~ label {
+      color: gold;
+      text-shadow: 1px 1px rgb(206, 127, 47);
+      transform: scale(1.1);
+      transition: transform 200ms, box-shadow 200ms;
+    }
+    .rating > input:checked + label:hover,
+    .rating > input:checked + label:hover ~ label,
+    .rating > input:checked ~ label:hover,
+    .rating > input:checked ~ label:hover ~ label,
+    .rating > label:hover ~ input:checked ~ label {
+      color: gold;
+      text-shadow: 1px 1px rgb(206, 127, 47);
+      transform: scale(1.0);
+      transition: transform 200ms, box-shadow 200ms;
+    }
+    .rating > label:active {
+      position: relative;
+    }
+}
